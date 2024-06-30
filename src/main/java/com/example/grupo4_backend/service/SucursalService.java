@@ -30,4 +30,8 @@ public class SucursalService {
     public void deleteById(Long id) {
         sucursalRepository.deleteById(id);
     }
+
+    public List<Sucursal> findByCiudad(String ciudad) {
+        return sucursalRepository.findByCiudad(ciudad);
+    }
 }

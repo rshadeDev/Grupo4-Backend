@@ -16,6 +16,11 @@ public class Sucursal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "La empresa no puede ser nulo")
+    @NotEmpty(message = "La empresa no puede estar vacío")
+    @Size(min = 5, max = 255, message = "La empresa debe tener entre 3 y 150 caracteres")
+    private String empresa;
+
     @NotNull(message = "El nombre no puede ser nulo")
     @NotEmpty(message = "El nombre no puede estar vacío")
     @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")

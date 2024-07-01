@@ -4,6 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Sucursal {
@@ -12,9 +16,24 @@ public class Sucursal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "El nombre no puede ser nulo")
+    @NotEmpty(message = "El nombre no puede estar vacío")
+    @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")
     private String nombre;
+
+    @NotNull(message = "El direccion no puede ser nulo")
+    @NotEmpty(message = "El direccion no puede estar vacío")
+    @Size(min = 5 , max = 200, message = "La direccion debe tener entre 5 y 200 caracteres")
     private String direccion;
+
+    @NotNull(message = "El ciudad no puede ser nulo")
+    @NotEmpty(message = "El ciudad no puede estar vacío")
+    @Size(min = 3, max = 100, message = "La ciudad debe tener entre 3 y 100 caracteres")
     private String ciudad;
+
+    @NotNull(message = "El teléfono no puede ser nulo")
+    @NotEmpty(message = "El teléfono no puede estar vacío")
+    @Pattern(regexp = "^[0-9]{9,12}$", message = "El telefono debe tener entre 9(si es que empieza con +9) y 12 digitos(si es que empieza con +569)")
     private String telefono;
 
     public Sucursal() {}

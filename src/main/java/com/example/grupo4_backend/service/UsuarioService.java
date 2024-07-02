@@ -13,5 +13,9 @@ public class UsuarioService {
     public Usuario registrarUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
+
+    public Usuario findByRut(String rut) {
+        return usuarioRepository.findByRut(rut);
+    }
     
 }

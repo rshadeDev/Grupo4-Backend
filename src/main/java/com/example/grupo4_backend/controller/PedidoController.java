@@ -33,7 +33,7 @@ public class PedidoController {
     public Pedido createPedido(@RequestBody Pedido pedido) {
         return pedidoService.createPedido(pedido);
     }
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deletePedido(@PathVariable Long id) {
         pedidoService.deleteById(id);
     }

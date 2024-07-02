@@ -13,8 +13,8 @@ import com.example.grupo4_backend.repository.PedidoRepository;
 public class PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
-    public Pedido createPedido(Pedido sucursal) {
-        return pedidoRepository.save(sucursal);
+    public Pedido createPedido(Pedido pedido) {
+        return pedidoRepository.save(pedido);
     }
     public Pedido updatePedido(Long id, Pedido pedidoDetails){
         Pedido pedido = pedidoRepository.findById(id).orElseThrow(()-> new NoSuchElementException("Ningun pedido coincide con la id proporcionada"));
